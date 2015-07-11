@@ -961,7 +961,7 @@ public class MainActivity extends Activity {
 		}
     }
 
-	//focussing manually
+	//focussing manually or auto
 	public void clickedChangeFocusMode(View view) {
 		if( MyDebug.LOG )
 			Log.d(TAG, "clickedChangeFocusMode");
@@ -982,15 +982,6 @@ public class MainActivity extends Activity {
 			changeFocusModeButton.setImageResource(R.drawable.focus_mode_manual);
 			preview.updateFocus("focus_mode_auto", false, true);
 		}
-		//changeFocusModeButton.setImageResource(preview.isExposureLocked() ? R.drawable.exposure_locked : R.drawable.exposure_unlocked);
-		//View focusManualButton = (View) findViewById(R.id.focus_manual1);
-		//focusManualButton.setEnabled(false); // prevent slowdown if user repeatedly clicks
-		//if( MyDebug.LOG )
-		//	Log.d(TAG, "clickedExposureLock");
-		//this.preview.toggleExposureLock();
-
-
-		//preview.showToast(exposure_lock_toast, preview.isExposureLocked() ? R.string.exposure_locked : R.string.exposure_unlocked);
 	}
 	//end focussing logic
 
