@@ -61,6 +61,7 @@
         android:layout_height="0dp"
         android:padding="1dp"
         android:scaleType="fitCenter"
+        android:visibility="invisible"
         />
 
     <ImageButton
@@ -106,6 +107,7 @@
         android:contentDescription="@string/action_popup"
         android:src="@drawable/popup"
         android:onClick="clickedPopupSettings"
+
         />
     
     <ImageButton
@@ -116,7 +118,8 @@
         android:scaleType="fitCenter"
         android:contentDescription="@string/exposure_lock"
         android:onClick="clickedExposureLock"
-        />
+
+       />
 
     <ImageButton
         android:id="@+id/exposure"
@@ -127,6 +130,7 @@
         android:contentDescription="@string/exposure"
         android:src="@drawable/exposure"
         android:onClick="clickedExposure"
+        android:visibility="invisible"
         />
 
     <!--switch camera to video and vice versa-->
@@ -164,6 +168,7 @@
         android:src="@drawable/trash"
         android:onClick="clickedTrash"
         android:visibility="gone"
+
         />
 
     <ImageButton
