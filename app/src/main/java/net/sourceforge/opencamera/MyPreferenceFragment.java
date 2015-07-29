@@ -51,12 +51,6 @@ public class MyPreferenceFragment extends PreferenceFragment {
 		if( MyDebug.LOG )
 			Log.d(TAG, "supports_auto_stabilise: " + supports_auto_stabilise);
 
-		/*if( !supports_auto_stabilise ) {
-			Preference pref = findPreference("preference_auto_stabilise");
-			PreferenceGroup pg = (PreferenceGroup)this.findPreference("preference_category_camera_effects");
-        	pg.removePreference(pref);
-		}*/
-
 		//readFromBundle(bundle, "color_effects", Preview.getColorEffectPreferenceKey(), Camera.Parameters.EFFECT_NONE, "preference_category_camera_effects");
 		//readFromBundle(bundle, "scene_modes", Preview.getSceneModePreferenceKey(), Camera.Parameters.SCENE_MODE_AUTO, "preference_category_camera_effects");
 		//readFromBundle(bundle, "white_balances", Preview.getWhiteBalancePreferenceKey(), Camera.Parameters.WHITE_BALANCE_AUTO, "preference_category_camera_effects");
@@ -237,23 +231,6 @@ public class MyPreferenceFragment extends PreferenceFragment {
                 }
             });
         }
-
-        /*{
-        	EditTextPreference edit = (EditTextPreference)findPreference("preference_save_location");
-        	InputFilter filter = new InputFilter() { 
-        		// whilst Android seems to allow any characters on internal memory, SD cards are typically formatted with FAT32
-        		String disallowed = "|\\?*<\":>";
-                public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) { 
-                    for(int i=start;i<end;i++) { 
-                    	if( disallowed.indexOf( source.charAt(i) ) != -1 ) {
-                            return ""; 
-                    	}
-                    } 
-                    return null; 
-                }
-        	}; 
-        	edit.getEditText().setFilters(new InputFilter[]{filter});         	
-        }*/
         {
         	Preference pref = findPreference("preference_save_location");
         	pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
@@ -267,35 +244,6 @@ public class MyPreferenceFragment extends PreferenceFragment {
                 }
             });        	
         }
-
-        {
-            final Preference pref = findPreference("preference_donate");
-            pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference arg0) {
-                	if( pref.getKey().equals("preference_donate") ) {
-                		if( MyDebug.LOG )
-                			Log.d(TAG, "user clicked to donate");
-            	        /*Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateMarketLink()));
-            	        try {
-            	        	startActivity(browserIntent);
-            	        }
-            			catch(ActivityNotFoundException e) {
-            				// needed in case market:// not supported
-            				if( MyDebug.LOG )
-            					Log.d(TAG, "can't launch market:// intent");
-                	        browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateLink()));
-            	        	startActivity(browserIntent);
-            			}*/
-            	        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MainActivity.getDonateLink()));
-        	        	startActivity(browserIntent);
-                		return false;
-                	}
-                	return false;
-                }
-            });
-        }
-
         {
             final Preference pref = findPreference("preference_about");
             pref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
@@ -572,37 +520,7 @@ public class MyPreferenceFragment extends PreferenceFragment {
             });
         }
 	}
-	
-	/*private void readFromBundle(Bundle bundle, String intent_key, String preference_key, String default_value, String preference_category_key) {
-		if( MyDebug.LOG ) {
-			Log.d(TAG, "readFromBundle: " + intent_key);
-		}
-		String [] values = bundle.getStringArray(intent_key);
-		if( values != null && values.length > 0 ) {
-			if( MyDebug.LOG ) {
-				Log.d(TAG, intent_key + " values:");
-				for(int i=0;i<values.length;i++) {
-					Log.d(TAG, values[i]);
-				}
-			}
-			ListPreference lp = (ListPreference)findPreference(preference_key);
-			lp.setEntries(values);
-			lp.setEntryValues(values);
-			SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
-			String value = sharedPreferences.getString(preference_key, default_value);
-			if( MyDebug.LOG )
-				Log.d(TAG, "    value: " + values);
-			lp.setValue(value);
-		}
-		else {
-			if( MyDebug.LOG )
-				Log.d(TAG, "remove preference " + preference_key + " from category " + preference_category_key);
-			Preference pref = findPreference(preference_key);
-        	PreferenceGroup pg = (PreferenceGroup)this.findPreference(preference_category_key);
-        	pg.removePreference(pref);
-		}
-	}*/
-	
+
 	public void onResume() {
 		super.onResume();
 		// prevent fragment being transparent

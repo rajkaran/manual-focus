@@ -746,7 +746,6 @@ public class Preview implements SurfaceHolder.Callback, TextureView.SurfaceTextu
 		successfully_focused = false;
 		preview_targetRatio = 0.0;
 		// n.b., don't reset has_set_location, as we can remember the location when switching camera
-		applicationInterface.cameraClosed();
 		cancelTimer();
 		if( camera_controller != null ) {
 			if( video_recorder != null ) {
