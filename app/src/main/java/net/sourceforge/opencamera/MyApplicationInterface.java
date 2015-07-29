@@ -736,21 +736,21 @@ public class MyApplicationInterface implements ApplicationInterface {
 		    	// n.b., don't hide share and trash buttons, as they require immediate user input for us to continue
 			    View switchCameraButton = (View) main_activity.findViewById(R.id.switch_camera);
 			    View switchVideoButton = (View) main_activity.findViewById(R.id.switch_video);
-			    View exposureButton = (View) main_activity.findViewById(R.id.exposure);
-			    View exposureLockButton = (View) main_activity.findViewById(R.id.exposure_lock);
-			    View popupButton = (View) main_activity.findViewById(R.id.popup);
+			    //View exposureButton = (View) main_activity.findViewById(R.id.exposure);
+			    //View exposureLockButton = (View) main_activity.findViewById(R.id.exposure_lock);
+			    //View popupButton = (View) main_activity.findViewById(R.id.popup);
 			    View galleryButton = (View) main_activity.findViewById(R.id.gallery);
 			    View settingsButton = (View) main_activity.findViewById(R.id.settings);
 			    View zoomControls = (View) main_activity.findViewById(R.id.zoom);
-			    View zoomSeekBar = (View) main_activity.findViewById(R.id.zoom_seekbar);
+			    //View zoomSeekBar = (View) main_activity.findViewById(R.id.zoom_seekbar);
 			    if( main_activity.getPreview().getCameraControllerManager().getNumberOfCameras() > 1 )
 			    	switchCameraButton.setVisibility(visibility);
 		    	switchVideoButton.setVisibility(visibility);
-			    if( main_activity.supportsExposureButton() )
-			    	exposureButton.setVisibility(visibility);
-			    if( main_activity.getPreview().supportsExposureLock() )
-			    	exposureLockButton.setVisibility(visibility);
-		    	popupButton.setVisibility(visibility);
+			    /*if( main_activity.supportsExposureButton() )
+			    	exposureButton.setVisibility(visibility);*/
+			    /*if( main_activity.getPreview().supportsExposureLock() )
+			    	exposureLockButton.setVisibility(visibility);*/
+		    	//popupButton.setVisibility(visibility);
 			    galleryButton.setVisibility(visibility);
 			    settingsButton.setVisibility(visibility);
 				if( MyDebug.LOG ) {
@@ -759,9 +759,9 @@ public class MyApplicationInterface implements ApplicationInterface {
 				if( main_activity.getPreview().supportsZoom() && sharedPreferences.getBoolean(PreferenceKeys.getShowZoomControlsPreferenceKey(), false) ) {
 					zoomControls.setVisibility(visibility);
 				}
-				if( main_activity.getPreview().supportsZoom() && sharedPreferences.getBoolean(PreferenceKeys.getShowZoomSliderControlsPreferenceKey(), true) ) {
+				/*if( main_activity.getPreview().supportsZoom() && sharedPreferences.getBoolean(PreferenceKeys.getShowZoomSliderControlsPreferenceKey(), true) ) {
 					zoomSeekBar.setVisibility(visibility);
-				}
+				}*/
         		String pref_immersive_mode = sharedPreferences.getString(PreferenceKeys.getImmersiveModePreferenceKey(), "immersive_mode_low_profile");
         		if( pref_immersive_mode.equals("immersive_mode_everything") ) {
     			    View takePhotoButton = (View) main_activity.findViewById(R.id.take_photo);
@@ -794,22 +794,22 @@ public class MyApplicationInterface implements ApplicationInterface {
 		    	final int visibility = show ? View.VISIBLE : View.GONE;
 			    View switchCameraButton = (View) main_activity.findViewById(R.id.switch_camera);
 			    View switchVideoButton = (View) main_activity.findViewById(R.id.switch_video);
-			    View exposureButton = (View) main_activity.findViewById(R.id.exposure);
-			    View exposureLockButton = (View) main_activity.findViewById(R.id.exposure_lock);
-			    View popupButton = (View) main_activity.findViewById(R.id.popup);
+			    //View exposureButton = (View) main_activity.findViewById(R.id.exposure);
+			    //View exposureLockButton = (View) main_activity.findViewById(R.id.exposure_lock);
+			    //View popupButton = (View) main_activity.findViewById(R.id.popup);
 			    if( main_activity.getPreview().getCameraControllerManager().getNumberOfCameras() > 1 )
 			    	switchCameraButton.setVisibility(visibility);
 			    if( !main_activity.getPreview().isVideo() )
 			    	switchVideoButton.setVisibility(visibility); // still allow switch video when recording video
-			    if( main_activity.supportsExposureButton() && !main_activity.getPreview().isVideo() ) // still allow exposure when recording video
-			    	exposureButton.setVisibility(visibility);
-			    if( main_activity.getPreview().supportsExposureLock() && !main_activity.getPreview().isVideo() ) // still allow exposure lock when recording video
-			    	exposureLockButton.setVisibility(visibility);
+			    /*if( main_activity.supportsExposureButton() && !main_activity.getPreview().isVideo() ) // still allow exposure when recording video
+			    	exposureButton.setVisibility(visibility);*/
+			    /*if( main_activity.getPreview().supportsExposureLock() && !main_activity.getPreview().isVideo() ) // still allow exposure lock when recording video
+			    	exposureLockButton.setVisibility(visibility);*/
 			    if( !show ) {
 			    	main_activity.closePopup(); // we still allow the popup when recording video, but need to update the UI (so it only shows flash options), so easiest to just close
 			    }
-			    if( !main_activity.getPreview().isVideo() || !main_activity.getPreview().supportsFlash() )
-			    	popupButton.setVisibility(visibility); // still allow popup in order to change flash mode when recording video
+			    /*if( !main_activity.getPreview().isVideo() || !main_activity.getPreview().supportsFlash() )
+			    	popupButton.setVisibility(visibility); // still allow popup in order to change flash mode when recording video*/
 			}
 		});
     }
@@ -877,10 +877,10 @@ public class MyApplicationInterface implements ApplicationInterface {
 		main_activity.layoutUI();
 	}
 	
-	@Override
+	/*@Override
 	public void multitouchZoom(int new_zoom) {
 		main_activity.setSeekbarZoom();
-	}
+	}*/
 
 	@Override
 	public void setCameraIdPref(int cameraId) {

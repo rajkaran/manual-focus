@@ -32,7 +32,7 @@
         android:alpha="0.5"
         />
 
-    <SeekBar
+    <!--SeekBar
         android:id="@+id/zoom_seekbar"
         android:contentDescription="@string/zoom"
         android:layout_width="150dp"
@@ -41,12 +41,12 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        />
+        /-->
     
     <SeekBar
         android:id="@+id/focus_seekbar"
         android:contentDescription="@string/focus_distance"
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="10dp"
@@ -98,7 +98,7 @@
         android:onClick="clickedGallery"
         />
 
-    <ImageButton
+    <!--ImageButton
         android:id="@+id/popup"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -108,9 +108,9 @@
         android:src="@drawable/popup"
         android:onClick="clickedPopupSettings"
 
-        />
+        /-->
     
-    <ImageButton
+    <!--ImageButton
         android:id="@+id/exposure_lock"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -119,9 +119,9 @@
         android:contentDescription="@string/exposure_lock"
         android:onClick="clickedExposureLock"
 
-       />
+       /-->
 
-    <ImageButton
+    <!--ImageButton
         android:id="@+id/exposure"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -131,7 +131,7 @@
         android:src="@drawable/exposure"
         android:onClick="clickedExposure"
         android:visibility="invisible"
-        />
+        /-->
 
     <!--switch camera to video and vice versa-->
     <ImageButton
@@ -183,41 +183,41 @@
         android:visibility="gone"
         />
 
-    <SeekBar
+    <!--SeekBar
         android:id="@+id/exposure_seekbar"
         android:contentDescription="@string/exposure_compensation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        />
+        /-->
 
-    <ZoomControls
+    <!--ZoomControls
         android:id="@+id/exposure_seekbar_zoom"
         android:contentDescription="@string/exposure_compensation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        />
+        /-->
 
-    <SeekBar
+    <!--SeekBar
         android:id="@+id/iso_seekbar"
         android:contentDescription="@string/iso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        />
+        /-->
 
-    <SeekBar
+    <!--SeekBar
         android:id="@+id/exposure_time_seekbar"
         android:contentDescription="@string/exposure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        />
+        /-->
 
     <FrameLayout
         android:id="@+id/prefs_container"
